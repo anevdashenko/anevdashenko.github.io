@@ -1,23 +1,23 @@
 [project]
-title = OpenMyGameTest
-version = 0.0.1
+title = FillWords
+version = 1.0.0.0
 write_log = 0
 compress_archive = 1
-publisher = DKislitsyn
-developer = DKislitsyn
-custom_resources = configs
-title_as_file_name = OpenMyGameTest
+publisher = unnamed
+developer = unnamed
+custom_resources = project/resources
+title_as_file_name = FillWords
 
 [display]
-width = 540
-height = 960
-high_dpi = 0
+width = 1080
+height = 1920
+high_dpi = 1
 samples = 0
 fullscreen = 0
 update_frequency = 0
 swap_interval = 1
 vsync = 1
-display_profiles = /builtins/render/default.display_profilesc
+display_profiles = /project/_sys/display/project.display_profilesc
 dynamic_orientation = 0
 display_device_info = 0
 
@@ -50,8 +50,8 @@ velocity_threshold = 1
 max_fixed_timesteps = 2
 
 [bootstrap]
-main_collection = /main/main.collectionc
-render = /render/custom.renderc
+main_collection = /project/scenes/root.collectionc
+render = /project/_sys/render/project.renderc
 
 [graphics]
 default_texture_min_filter = linear
@@ -59,7 +59,7 @@ default_texture_mag_filter = linear
 max_draw_calls = 1024
 max_characters = 8192
 max_debug_vertices = 10000
-texture_profiles = /builtins/graphics/default.texture_profiles
+texture_profiles = /project/_sys/textures/project.texture_profiles
 verify_graphics_calls = 1
 memory_size = 512
 
@@ -153,9 +153,9 @@ app_icon =
 
 [html5]
 custom_heap_size = 0
-heap_size = 128
+heap_size = 256
 htmlfile = /builtins/manifests/web/engine_template.html
-cssfile = /builtins/manifests/web/light_theme.css
+cssfile = /project/_sys/html5/dark_theme.css
 archive_location_prefix = archive
 archive_location_suffix = 
 engine_arguments = --verify-graphics-calls=false
@@ -163,7 +163,7 @@ wasm_streaming = 0
 show_fullscreen_button = 0
 show_made_with_defold = 0
 show_console_banner = 0
-scale_mode = fit
+scale_mode = stretch
 
 [particle_fx]
 max_count = 64
@@ -204,4 +204,7 @@ max_tile_count = 2048
 [engine]
 run_while_iconified = 0
 fixed_update_frequency = 60
+
+[native_extension]
+app_manifest = /project/_sys/project.appmanifest
 
