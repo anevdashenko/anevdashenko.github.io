@@ -1,0 +1,11 @@
+@import url('./loadingScreen.css');
+
+.squares {
+    position: relative;
+    box-sizing: border-box;
+}
+
+.square {
+    position: absolute;
+    display: none;
+}

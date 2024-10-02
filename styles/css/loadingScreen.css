@@ -1,0 +1,21 @@
+@font-face {
+    font-family: RobotoBold;
+    src: url('../fonts/RobotoBold.ttf');
+}
+
+@font-face {
+    font-family: RobotoBlack;
+    src: url('../fonts/RobotoBlack.ttf');
+}
+
+.loading__title {
+    font-family: RobotoBlack;
+    font-size: 5vh;
+}
+
+.loading__progressbar__text {
+    font-family: RobotoBold;
+    font-weight: bold;
+    font-size: 4vh;
+    line-height: 45px;
+}

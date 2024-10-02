@@ -1,18 +1,22 @@
 // 1. Put here the name of your game:
-const cachePrefix = "PetSudoku";
+const cachePrefix = "sudoku-master";
 
 // 2. Increment the version every time you publish your game!
 const cacheName = cachePrefix + "-v1";
 
 const cacheList = [
     "https://yandex.ru/games/sdk/v2",
-
-    // 3. Add ALL your game files to the list:
+    "images/icon.svg",
+    "images/logo.svg",
+    "scripts/loading.js",
+    "scripts/sessionsHelper.js",
+    "scripts/wrapper.js",
+    "styles/css/loadingScreen.css",
+    "styles/css/style.css",
+    "styles/fonts/RobotoBold.ttf",
     "index.html",
-    "start.bat",
-    "sdk.bat",
-    "adaptivescreen.js",
     "dmloader.js",
+    "sw.js",
     "dmengine.wasm",
     "dmengine_wasm.js",
     "dmengine_asmjs.js",
@@ -22,19 +26,20 @@ const cacheList = [
     "archive/game.dmanifest0",
     "archive/game.projectc0",
     "archive/game.public.der0",
+    "https://yandex.ru/games/sdk/v2"
 ];
 
 // Installation of the service worker
-self.addEventListener("install", function (event) {
+self.addEventListener("install", function(event) {
     event.waitUntil(
         caches.open(cacheName).then((cache) => {
             return cache.addAll(cacheList);
-        })
+        }).catch((err) => console.log(err))
     );
 });
 
 // Deletion of old cache
-self.addEventListener("activate", function (event) {
+self.addEventListener("activate", function(event) {
     console.assert(typeof cacheName === "string");
     console.assert(typeof cachePrefix === "string");
 
@@ -47,12 +52,12 @@ self.addEventListener("activate", function (event) {
                     }
                 })
             );
-        })
+        }).catch((err) => console.log(err))
     );
 });
 
 // Handling of data stored in the device cache with exceptions
-self.addEventListener("fetch", function (event) {
+self.addEventListener("fetch", function(event) {
     if (
         event.request.method !== "GET" ||
         event.request.url.indexOf("http://") === 0 ||
@@ -62,8 +67,8 @@ self.addEventListener("fetch", function (event) {
     }
 
     event.respondWith(
-        caches.match(event.request, { ignoreSearch: true }).then(function (response) {
+        caches.match(event.request, { ignoreSearch: true }).then(function(response) {
             return response || fetch(event.request);
-        })
+        }).catch((err) => console.log(err))
     );
 });
